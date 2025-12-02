@@ -1,0 +1,1 @@
+{"domain": "flashforge", "name": "Flashforge 3D Printer", "version": "1.0.0", "documentation": "https://github.com/pcartwright81/homeassistant-flashforge", "dependencies": [], "codeowners": ["@pcartwright81"], "requirements": ["flashforge-python-api"]}

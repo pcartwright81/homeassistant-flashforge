@@ -1,8 +1,8 @@
+"""Blank."""
+import homeassistant.helpers.config_validation as cv
 import voluptuous as vol
-
 from homeassistant import config_entries
 from homeassistant.const import CONF_HOST, CONF_PASSWORD, CONF_USERNAME
-import homeassistant.helpers.config_validation as cv
 
 from .const import DOMAIN
 

@@ -1,4 +1,10 @@
+"""Constants for the Flashforge integration."""
+
 DOMAIN = "flashforge"
-CONF_HOST = "host"
-CONF_USERNAME = "username"
-CONF_PASSWORD = "password"
+DEFAULT_NAME = "FlashForge"
+
+CONF_SERIAL_NUMBER = "serial_number"
+CONF_CHECK_CODE = "check_code"
+
+SCAN_INTERVAL = 30
+MAX_FAILED_UPDATES = 3

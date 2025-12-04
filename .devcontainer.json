@@ -1,0 +1,56 @@
+{
+    "name": "pcartwright81/homeassistant-flashforge",
+    "image": "mcr.microsoft.com/devcontainers/python:3.13",
+    "postCreateCommand": "pip install poetry && poetry install --with dev",
+    "forwardPorts": [
+        8123,
+        1984
+    ],
+    "portsAttributes": {
+        "8123": {
+            "label": "Home Assistant",
+            "onAutoForward": "notify"
+        },
+        "1984": {
+            "label": "go2rtc Web UI",
+            "onAutoForward": "notify"
+        }
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "charliermarsh.ruff",
+                "github.vscode-pull-request-github",
+                "ms-python.python",
+                "ms-python.vscode-pylance",
+                "ryanluker.vscode-coverage-gutters"
+            ],
+            "settings": {
+                "files.eol": "\n",
+                "editor.tabSize": 4,
+                "editor.formatOnPaste": true,
+                "editor.formatOnSave": true,
+                "editor.formatOnType": false,
+                "files.trimTrailingWhitespace": true,
+                "python.analysis.typeCheckingMode": "basic",
+                "python.analysis.autoImportCompletions": true,
+                "python.defaultInterpreterPath": "/usr/local/bin/python",
+                "[python]": {
+                    "editor.defaultFormatter": "charliermarsh.ruff"
+                }
+            }
+        }
+    },
+    "remoteUser": "vscode",
+    "features": {
+        //"ghcr.io/devcontainers/features/poetry:1": {}, Remove?
+        // "ghcr.io/devcontainers-extra/features/go2rtc:1": {}, //todo make this avoid error.
+        "ghcr.io/devcontainers-extra/features/apt-packages:1": {
+            "packages": [
+                "ffmpeg",
+                "libturbojpeg0",
+                "libpcap-dev"
+            ]
+        }
+    }
+}

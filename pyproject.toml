@@ -1,0 +1,62 @@
+[tool.poetry]
+name = "homeassistant-flashforge"
+version = "0.1.0"
+description = "A Home Assistant custom component project"
+readme = "README.md"
+authors = ["Patrick Cartwright <pcartwright1981@gmail.com>"] # Primary authors of the project.
+license = "MIT"
+packages = [{include = "custom_components/flashforge"}] # Defines the source package directory
+keywords = ["home-assistant", "flashforge", "custom-component"]
+
+[tool.poetry.dependencies]
+python = ">=3.13.2,<4.0"
+
+# Core runtime dependencies
+aiohttp_cors = "==0.8.1"
+colorlog = "==6.8.2"
+flashforge_python_api = "*" # Latest version used for the upstream API wrapper
+
+# Development dependencies (testing, linting, etc.)
+[tool.poetry.group.dev.dependencies]
+pytest-homeassistant-custom-component = "==0.13.297"
+ruff = "==0.4.4"
+
+# --- Independent Tool Configuration ---
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto" # Automatically manages asyncio mode for HA tests
+testpaths = ["tests"]
+
+# Ruff Configuration
+[tool.ruff]
+target-version = "py312"
+
+[tool.ruff.lint]
+# Selects all available lint rules
+select = ["ALL"]
+# Ignore specific rules common in HA/third-party usage
+ignore = [
+    "ANN101",   # Missing type annotation for self/cls
+    "ANN401",   # Disallow usage of 'Any' (sometimes necessary)
+    "D203",     # 1 blank line required before class docstring (conflict with other formatters)
+    "D212",     # Multi-line docstring summary should start at the first line
+    "COM812",   # Missing trailing comma in array/list
+    "ISC001",   # Conflicts with Black/other formatters
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["S101"] # Allow simple assertions in test files (S101)
+
+[tool.ruff.lint.flake8-pytest-style]
+fixture-parentheses = false
+
+[tool.ruff.lint.pyupgrade]
+keep-runtime-typing = true
+
+[tool.ruff.lint.mccabe]
+max-complexity = 25 # Set maximum cyclomatic complexity
+
+# Build system definition
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

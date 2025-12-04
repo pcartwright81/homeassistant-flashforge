@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+# Exit immediately if a command exits with a non-zero status
+set -e
+
+# Change directory to the root of the project
+cd "$(dirname "$0")/.."
+
+echo "Creating and activating Poetry environment..."
+# Installs main dependencies and creates the environment
+poetry install
+
+echo "Installing development dependencies..."
+# Installs the 'dev' group dependencies
+poetry install --with dev
+
+echo "Setup complete. To activate the environment, run: poetry shell"./sc   

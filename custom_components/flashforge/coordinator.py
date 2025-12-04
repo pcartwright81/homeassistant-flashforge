@@ -1,10 +1,9 @@
 import asyncio
 import logging
 
+from flashforge_python_api import FlashforgeAPI
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.update_coordinator import DataUpdateCoordinator
-
-from flashforge_python_api import FlashforgeAPI
 
 from .const import DOMAIN
 

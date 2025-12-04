@@ -1,0 +1,36 @@
+name: Lint with Poetry
+
+on:
+  push:
+    branches:
+      - "main"
+  pull_request:
+    branches:
+      - "main"
+
+permissions: {}
+
+jobs:
+  ruff:
+    name: "Ruff"
+    runs-on: "ubuntu-latest"
+    defaults:
+      run:
+        shell: "bash"
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v4
+
+      - name: Set up Poetry
+        uses: abatilo/actions-poetry@v3
+        with:
+          poetry-version: "1.8.2"
+
+      - name: Install dependencies
+        run: poetry install --with dev
+
+      - name: Lint
+        run: poetry run ruff check .
+
+      - name: Format
+        run: poetry run ruff format . --check

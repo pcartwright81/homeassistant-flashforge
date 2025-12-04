@@ -1,0 +1,41 @@
+# artifacts
+__pycache__
+.pytest*
+*.egg-info
+*/build/*
+*/dist/*
+
+
+# misc
+.coverage
+# .vscode
+coverage.xml
+
+custom_components/integration_blueprint
+
+
+# Home Assistant configuration
+.cloud
+.HA_VERSION
+.storage
+automations.yaml
+blueprints
+configuration.yaml
+deps
+home-assistant_v2*
+home-assistant.log*
+tts
+scenes.yaml
+scripts.yaml
+secrets.yaml
+.vscode
+coverage.xml
+.ruff_cache
+
+
+# Home Assistant configuration
+config/*
+config/configuration.yaml
+.ha_run.lock
+.vs/
+build/*

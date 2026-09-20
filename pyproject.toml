@@ -13,13 +13,13 @@ python = ">=3.13.2,<4.0"
 
 # Core runtime dependencies
 aiohttp_cors = "==0.8.1"
-colorlog = "==6.8.2"
+colorlog = "==6.12.0"
 flashforge_python_api = "*" # Latest version used for the upstream API wrapper
 
 # Development dependencies (testing, linting, etc.)
 [tool.poetry.group.dev.dependencies]
-pytest-homeassistant-custom-component = "==0.13.297"
-ruff = "==0.4.4"
+pytest-homeassistant-custom-component = "==0.13.366"
+ruff = "==0.16.8"
 
 # --- Independent Tool Configuration ---
 

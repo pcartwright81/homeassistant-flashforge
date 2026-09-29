@@ -1,4 +1,8 @@
-# Flashforge 3D Printer Integration
+# Archived project
+# Use https://github.com/GhostTypes/ff-5mp-hass
+
+
+## Flashforge 3D Printer Integration
 
 This is a Home Assistant integration for FlashForge 3D printers using the flashforge-python-api.
 
